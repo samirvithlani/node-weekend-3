@@ -1,0 +1,11 @@
+// //const name  = require('./users')
+// const user  = require('./users')
+// // console.log(user.name)
+// // console.log(user.age)
+// user.demo("ok")
+const files = require('./FileDemo')
+files.writeData()
+files.readData()
+files.writeJson()
+files.readJson()
+
