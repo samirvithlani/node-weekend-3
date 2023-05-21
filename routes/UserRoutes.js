@@ -11,4 +11,5 @@ router.post('/user',userController.postUserData)
 router.get('/userdb',userController.getUserDataFromDb)
 router.get('/user/:id',userController.getUserbyId)
 router.get('/userbycond',userController.getUserByCond)
+router.post('/adduser',userController.addUser)
 module.exports = router;
