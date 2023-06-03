@@ -12,4 +12,5 @@ router.get('/userdb',userController.getUserDataFromDb)
 router.get('/user/:id',userController.getUserbyId)
 router.get('/userbycond',userController.getUserByCond)
 router.post('/adduser',userController.addUser)
+router.get('/userwithrole',userController.getUserWithRole)
 module.exports = router;

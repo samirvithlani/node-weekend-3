@@ -20,6 +20,10 @@ const userSchema = new Schema({
     },
     isActive:{
         type:Boolean,
+    },
+    role:{
+        type:Schema.Types.ObjectId,
+        ref:'roles'
     }
 
 })

@@ -3,13 +3,23 @@ const app = express();
 const mongoose = require("mongoose");
 const PORT = 3000;
 
-const userRoutes = require("./routes/UserRoutes");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const userRoutes = require("./routes/UserRoutes");
+const roleRoutes = require("./routes/RoleRoutes");
+const categoryRoutes = require("./routes/CategoryRoutes");
+const productRoutes = require("./routes/ProductRoutes");
+const userProductRoutes = require("./routes/UserProductRoutes");
 
 //use function is used to use middleware
 
 app.use("/user", userRoutes);
+app.use("/role", roleRoutes);
+app.use("/category", categoryRoutes);
+app.use("/product", productRoutes);
+app.use("/userproduct", userProductRoutes);
+
 
 // app.get('/test',(req,res)=>{
 

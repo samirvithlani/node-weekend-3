@@ -113,6 +113,25 @@ const getUserbyId = (req, res) => {
       });
     });
 };
+const getUserWithRole = (req, res) => {
+
+
+    userSchema.find().populate('role').then((data)=>{
+        res.status(200).json({
+            message:'get user with role',
+            data:data
+        })
+    }).catch((err)=>{
+        res.status(500).json({
+            message:'error occured',
+            error:err
+        })
+    })
+
+
+}
+
+
 module.exports = {
   getuserData,
   postUserData,
@@ -120,4 +139,5 @@ module.exports = {
   getUserbyId,
   getUserByCond,
   addUser,
+  getUserWithRole
 };
