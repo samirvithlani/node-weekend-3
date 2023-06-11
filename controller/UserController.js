@@ -131,6 +131,72 @@ const getUserWithRole = (req, res) => {
 
 }
 
+const updateUser = (req, res) => {
+
+
+  userSchema.findByIdAndUpdate(req.params.id,req.body).then((data)=>{
+
+    res.status(200).json({
+      message:'user updated',
+      data:data
+    })
+  }).catch((err)=>{
+    res.status(500).json({
+      message:'error occured',
+      error:err
+    })
+  })
+
+}
+const deleetUseByCond = (req, res) => {
+
+userSchema.deleteMany({age:{$gt:req.body.age}}).then((data)=>{
+    res.status(200).json({
+        message:'user deleted',
+        data:data
+    })
+}).catch((err)=>{
+    res.status(500).json({
+        message:'error occured',
+    })
+})
+
+}
+const deleteUser =(req,res)=>{
+
+  userSchema.findByIdAndDelete(req.params.id).then((data)=>{
+    res.status(200).json({
+      message:'user deleted',
+      data:data
+    })
+  }).catch((err)=>{
+    res.status(500).json({
+      message:'error occured',
+      error:err
+    })
+  })
+
+
+}
+
+const addHobbies = (req, res) => {
+
+
+  //userSchema.updateMany({})
+  userSchema.findByIdAndUpdate(req.params.id,{$push:{hobbies:req.body.hobbies}}).then((data)=>{
+    res.status(200).json({
+      message:'hobbies added',
+      data:data
+    })
+  }).catch((err)=>{
+    res.status(500).json({
+      message:'error occured',
+      error:err
+    })
+  })
+
+
+}
 
 module.exports = {
   getuserData,
@@ -139,5 +205,9 @@ module.exports = {
   getUserbyId,
   getUserByCond,
   addUser,
-  getUserWithRole
+  getUserWithRole,
+  deleteUser,
+  deleetUseByCond,
+  updateUser,
+  addHobbies
 };
