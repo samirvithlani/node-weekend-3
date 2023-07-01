@@ -2,13 +2,18 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controller/UserController');
+const AuthUtil = require('../util/AuthUtil')
 
 // router.get('/user',(req,res)=>{
 
 // })
 router.get('/user',userController.getuserData)
 router.post('/user',userController.postUserData)
-router.get('/userdb',userController.getUserDataFromDb)
+//middleware.. 
+
+router.get('/userdb',AuthUtil,userController.getUserDataFromDb)
+
+
 router.get('/user/:id',userController.getUserbyId)
 router.get('/userbycond',userController.getUserByCond)
 router.post('/adduser',userController.addUser)
